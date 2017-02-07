@@ -1,3 +1,4 @@
+var cool = require('cool-ascii-faces');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -52,6 +53,10 @@ app.use(function(req,res,next){
 
 // 引入路由文件
 require('./routes/routeConfig')(app);
+
+app.get('/cool',function(req,res){
+	res.send(cool());
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
